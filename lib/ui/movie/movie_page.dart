@@ -6,7 +6,7 @@ import 'movie_bloc.dart';
 class MoviePage extends StatelessWidget {
   final String imdbId;
 
-  MoviePage(this.imdbId);
+  const MoviePage(this.imdbId, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +43,10 @@ class MoviePage extends StatelessWidget {
                                 Text(movie.title ?? "", style: const TextStyle(fontSize: 18)),
                                 const Padding(padding: EdgeInsets.all(4)),
                                 Text(movie.year ?? "", style: const TextStyle(fontSize: 18)),
+                                const Padding(padding: EdgeInsets.all(4)),
+                                Text(movie.genre ?? ""),
+                                const Padding(padding: EdgeInsets.all(4)),
+                                Text(movie.runtime ?? ""),
                                 const Padding(padding: EdgeInsets.all(4)),
                                 Text(movie.imdbId ?? ""),
                                 const Padding(padding: EdgeInsets.all(4)),

@@ -26,17 +26,19 @@ class MovieItem extends StatelessWidget {
                 padding: const EdgeInsets.all(6),
                 child: movie.poster == "N/A" ? const SizedBox(height: 120, width: 120) : Image.network(movie.poster ?? "", height: 120),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(movie.title ?? ""),
-                  const Padding(padding: EdgeInsets.all(2)),
-                  Text(movie.year ?? ""),
-                  const Padding(padding: EdgeInsets.all(2)),
-                  Text(movie.imdbId ?? ""),
-                  const Padding(padding: EdgeInsets.all(2)),
-                  Text(movie.type ?? "")
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(movie.title ?? ""),
+                    const Padding(padding: EdgeInsets.all(2)),
+                    Text(movie.year ?? ""),
+                    const Padding(padding: EdgeInsets.all(2)),
+                    Text(movie.imdbId ?? ""),
+                    const Padding(padding: EdgeInsets.all(2)),
+                    Text(movie.type ?? "")
+                  ],
+                ),
               )
             ],
           )),

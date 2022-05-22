@@ -3,13 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie/ui/movies/movies_bloc.dart';
 import 'package:flutter_movie/ui/movies/movies_content.dart';
 
-class MoviesPage extends StatefulWidget {
-  @override
-  MoviesPageState createState() => MoviesPageState();
-}
-
-class MoviesPageState extends State<MoviesPage> {
+class MoviesPage extends StatelessWidget {
   final _titleController = TextEditingController();
+
+  MoviesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +19,10 @@ class MoviesPageState extends State<MoviesPage> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 300,
+                  width: 250,
                   child: TextField(
                     decoration: const InputDecoration(
                       labelText: "Title",
@@ -34,8 +32,11 @@ class MoviesPageState extends State<MoviesPage> {
                 ),
                 BlocBuilder<MoviesBloc, MoviesState>(
                   builder: (context, state) {
-                    return TextButton(
-                        onPressed: () => {BlocProvider.of<MoviesBloc>(context).add(LoadMoviesEvent(_titleController.text))},
+                    return ElevatedButton(
+                        onPressed: () {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          BlocProvider.of<MoviesBloc>(context).add(LoadMoviesEvent(_titleController.text));
+                        },
                         child: const Text("Search"));
                   },
                 )
