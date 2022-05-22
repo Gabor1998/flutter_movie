@@ -6,10 +6,10 @@ part 'movie_search_dto.g.dart';
 @JsonSerializable()
 class MovieSearchDto {
   @JsonKey(name: "Search")
-  final List<MovieDto> movies;
-  final String totalResults;
+  final List<MovieDto>? movies;
+  final String? totalResults;
   @JsonKey(name: "Response")
-  final String response;
+  final String? response;
 
   MovieSearchDto(this.movies, this.totalResults, this.response);
 

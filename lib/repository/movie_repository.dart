@@ -11,6 +11,6 @@ class MovieRepository {
   }
 
   Future<MovieDto> getMovie(String imdbId) async {
-    return await movieService.getMovie(imdbId);
+    return await movieService.getMovie(imdbId, "full");
   }
 }

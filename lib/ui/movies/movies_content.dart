@@ -9,13 +9,13 @@ class MovieListContent extends StatefulWidget {
   const MovieListContent(this.state);
 
   @override
-  _MovieListContentState createState() => _MovieListContentState(state);
+  MovieListContentState createState() => MovieListContentState(state);
 }
 
-class _MovieListContentState extends State<MovieListContent> {
+class MovieListContentState extends State<MovieListContent> {
   MoviesContentState state;
 
-  _MovieListContentState(this.state);
+  MovieListContentState(this.state);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _MovieListContentState extends State<MovieListContent> {
         itemCount: state.movies.length,
         itemBuilder: (context, index) {
           final movie = state.movies[index];
-          return MovieItem(movie);
+          return MovieItem(key: Key(movie.imdbId ?? ""), movie: movie);
         });
   }
 }

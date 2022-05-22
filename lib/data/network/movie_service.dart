@@ -23,5 +23,5 @@ abstract class MovieService {
   Future<MovieSearchDto> searchMovie(@Query("s") String title);
 
   @GET("")
-  Future<MovieDto> getMovie(@Query("i") String imdbId);
+  Future<MovieDto> getMovie(@Query("i") String imdbId, @Query("plot") String plotType);
 }

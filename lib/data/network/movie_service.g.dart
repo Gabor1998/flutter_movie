@@ -32,9 +32,9 @@ class _MovieService implements MovieService {
   }
 
   @override
-  Future<MovieDto> getMovie(imdbId) async {
+  Future<MovieDto> getMovie(imdbId, plotType) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'i': imdbId};
+    final queryParameters = <String, dynamic>{r'i': imdbId, r'plot': plotType};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
